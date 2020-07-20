@@ -16,6 +16,7 @@ struct Constants {
   #endif
   
   static let kAppName = "Test Assignment"
+  static let kNetworkChangeIdentifier = "NetworkChange"
   static let kErrorFetchList = "Something went wrong while fetching the list."
   static let KNoNetwork = "No Network Connection!"
   static let kError = "Error"
