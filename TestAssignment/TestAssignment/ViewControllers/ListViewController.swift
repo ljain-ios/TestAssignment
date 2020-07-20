@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ListViewController.swift
 //  TestAssignment
 //
 //  Created by Lokesh on 20/07/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ListViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()

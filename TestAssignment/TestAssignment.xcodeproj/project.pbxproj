@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF49C42724C58C43002ED0A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C42624C58C43002ED0A5 /* AppDelegate.swift */; };
-		CF49C42924C58C43002ED0A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C42824C58C43002ED0A5 /* SceneDelegate.swift */; };
-		CF49C42B24C58C43002ED0A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C42A24C58C43002ED0A5 /* ViewController.swift */; };
 		CF49C43024C58C45002ED0A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF49C42F24C58C45002ED0A5 /* Assets.xcassets */; };
 		CF49C43324C58C45002ED0A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF49C43124C58C45002ED0A5 /* LaunchScreen.storyboard */; };
 		CF49C43E24C58C45002ED0A5 /* TestAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C43D24C58C45002ED0A5 /* TestAssignmentTests.swift */; };
+		CF49C45324C594E3002ED0A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C45024C594E3002ED0A5 /* AppDelegate.swift */; };
+		CF49C45424C594E3002ED0A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C45124C594E3002ED0A5 /* SceneDelegate.swift */; };
+		CF49C45824C5958A002ED0A5 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C45724C5958A002ED0A5 /* ListViewController.swift */; };
+		CF49C45B24C595D7002ED0A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C45924C595D7002ED0A5 /* Constants.swift */; };
+		CF49C45C24C595D7002ED0A5 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C45A24C595D7002ED0A5 /* DeviceType.swift */; };
+		CF49C45E24C59623002ED0A5 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C45D24C59623002ED0A5 /* ApiClient.swift */; };
+		CF49C46024C59635002ED0A5 /* HTTPLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C45F24C59635002ED0A5 /* HTTPLayer.swift */; };
+		CF49C46224C5964B002ED0A5 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C46124C5964B002ED0A5 /* ListModel.swift */; };
+		CF49C46424C5965B002ED0A5 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C46324C5965B002ED0A5 /* ListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,15 +33,21 @@
 
 /* Begin PBXFileReference section */
 		CF49C42324C58C43002ED0A5 /* TestAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF49C42624C58C43002ED0A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF49C42824C58C43002ED0A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CF49C42A24C58C43002ED0A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CF49C42F24C58C45002ED0A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF49C43224C58C45002ED0A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF49C43424C58C45002ED0A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF49C43924C58C45002ED0A5 /* TestAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF49C43D24C58C45002ED0A5 /* TestAssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAssignmentTests.swift; sourceTree = "<group>"; };
 		CF49C43F24C58C45002ED0A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF49C45024C594E3002ED0A5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CF49C45124C594E3002ED0A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CF49C45724C5958A002ED0A5 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		CF49C45924C595D7002ED0A5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CF49C45A24C595D7002ED0A5 /* DeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
+		CF49C45D24C59623002ED0A5 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		CF49C45F24C59635002ED0A5 /* HTTPLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPLayer.swift; sourceTree = "<group>"; };
+		CF49C46124C5964B002ED0A5 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		CF49C46324C5965B002ED0A5 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +89,14 @@
 		CF49C42524C58C43002ED0A5 /* TestAssignment */ = {
 			isa = PBXGroup;
 			children = (
-				CF49C42624C58C43002ED0A5 /* AppDelegate.swift */,
-				CF49C42824C58C43002ED0A5 /* SceneDelegate.swift */,
-				CF49C42A24C58C43002ED0A5 /* ViewController.swift */,
+				CF49C44B24C594E3002ED0A5 /* Constants */,
+				CF49C44924C594E3002ED0A5 /* Networking */,
+				CF49C44A24C594E3002ED0A5 /* Reachability */,
+				CF49C44F24C594E3002ED0A5 /* DefaultDelegates */,
+				CF49C45524C59564002ED0A5 /* CustomViews */,
+				CF49C44E24C594E3002ED0A5 /* Models */,
+				CF49C44824C594E3002ED0A5 /* ViewModels */,
+				CF49C45624C5958A002ED0A5 /* ViewControllers */,
 				CF49C42F24C58C45002ED0A5 /* Assets.xcassets */,
 				CF49C43124C58C45002ED0A5 /* LaunchScreen.storyboard */,
 				CF49C43424C58C45002ED0A5 /* Info.plist */,
@@ -94,6 +111,71 @@
 				CF49C43F24C58C45002ED0A5 /* Info.plist */,
 			);
 			path = TestAssignmentTests;
+			sourceTree = "<group>";
+		};
+		CF49C44824C594E3002ED0A5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CF49C46324C5965B002ED0A5 /* ListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CF49C44924C594E3002ED0A5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				CF49C45D24C59623002ED0A5 /* ApiClient.swift */,
+				CF49C45F24C59635002ED0A5 /* HTTPLayer.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		CF49C44A24C594E3002ED0A5 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		CF49C44B24C594E3002ED0A5 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				CF49C45924C595D7002ED0A5 /* Constants.swift */,
+				CF49C45A24C595D7002ED0A5 /* DeviceType.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		CF49C44E24C594E3002ED0A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CF49C46124C5964B002ED0A5 /* ListModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CF49C44F24C594E3002ED0A5 /* DefaultDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				CF49C45024C594E3002ED0A5 /* AppDelegate.swift */,
+				CF49C45124C594E3002ED0A5 /* SceneDelegate.swift */,
+			);
+			path = DefaultDelegates;
+			sourceTree = "<group>";
+		};
+		CF49C45524C59564002ED0A5 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		CF49C45624C5958A002ED0A5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CF49C45724C5958A002ED0A5 /* ListViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,9 +278,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF49C42B24C58C43002ED0A5 /* ViewController.swift in Sources */,
-				CF49C42724C58C43002ED0A5 /* AppDelegate.swift in Sources */,
-				CF49C42924C58C43002ED0A5 /* SceneDelegate.swift in Sources */,
+				CF49C45324C594E3002ED0A5 /* AppDelegate.swift in Sources */,
+				CF49C45424C594E3002ED0A5 /* SceneDelegate.swift in Sources */,
+				CF49C45824C5958A002ED0A5 /* ListViewController.swift in Sources */,
+				CF49C46024C59635002ED0A5 /* HTTPLayer.swift in Sources */,
+				CF49C45B24C595D7002ED0A5 /* Constants.swift in Sources */,
+				CF49C46424C5965B002ED0A5 /* ListViewModel.swift in Sources */,
+				CF49C45C24C595D7002ED0A5 /* DeviceType.swift in Sources */,
+				CF49C45E24C59623002ED0A5 /* ApiClient.swift in Sources */,
+				CF49C46224C5964B002ED0A5 /* ListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
