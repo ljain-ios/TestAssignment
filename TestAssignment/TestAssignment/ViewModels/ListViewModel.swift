@@ -12,7 +12,7 @@ class ListViewModel {
   let httpLayer = HTTPLayer()
   let networking: ApiClient
   var listData: ListModel?
-
+  
   // MARK: - Class Methods
   init(){
     // Initialize networking for API Calls
