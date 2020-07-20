@@ -62,6 +62,28 @@ class TestAssignmentTests: XCTestCase {
     wait(for: [expectationForDecoder], timeout: 10.0)
   }
   
+  // MARK: - Test Download Image Method
+  func testImageDownloadMethod() {
+    // Creating the expectation to see if API gives status code 200
+    let promise = expectation(description: "Status code: 200")
+    
+    // Download image call
+    self.httpLayer.request(at: .downloadImageFromUrl("http://static.guim.co.uk/sys-images/Music/Pix/site_furniture/2007/04/19/avril_lavigne.jpg")) { (data, response, error) in
+      
+      if let error = error {
+        XCTFail("Error: \(error.localizedDescription)")
+        return
+      } else if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+        if statusCode == 200 {
+          promise.fulfill()
+        } else {
+          XCTFail("Status code: \(statusCode)")
+        }
+      }
+    }
+    wait(for: [promise], timeout: 10)
+  }
+  
   // MARK: - Test ListModel Decoder Method
   func testDecoderToPopulateListModel() throws {
     let listData = Data("""
