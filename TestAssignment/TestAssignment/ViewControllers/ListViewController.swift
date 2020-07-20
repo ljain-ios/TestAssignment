@@ -39,16 +39,54 @@ class ListViewController: UIViewController {
     setUpActivityIndicator()
     setUpNoRecordLabel()
     
-    // Call API to Fetch List
-    callGetListAPI()
+    // Call API to Fetch List if network available
+    if ReachabilityManager.sharedManager.isNetworkRechable {
+      callGetListAPI()
+    } else {
+      showNetworkToast()
+    }
+    
+    // Adding observer for Reachability
+    NotificationCenter.default.addObserver(self, selector: #selector(showNetworkToast), name: NSNotification.Name(rawValue: Constants.kNetworkChangeIdentifier), object: nil)
   }
   
   // MARK: - Pull to Refresh Method
   @objc func pullToRefresh(_ sender: UIRefreshControl) {
-    refreshControl.beginRefreshing()
+    if ReachabilityManager.sharedManager.isNetworkRechable {
+      refreshControl.beginRefreshing()
+      
+      // Pass sender for hiding ActivityIndicator when called from RefreshControl
+      callGetListAPI(refreshControl: sender)
+    } else {
+      refreshControl.endRefreshing()
+      showNetworkToast()
+    }
+  }
+  
+  // MARK: - Reachability Toast Method
+  @objc func showNetworkToast() {
+    let toastView = NetworkErrorToastView()
+    let toastHeight: CGFloat = DeviceType.hasTopNotch ? 70.0 : 50.0
+    toastView.frame = CGRect(x: 0, y: ScreenSize.height, width: ScreenSize.width, height: toastHeight)
+    if (!ReachabilityManager.sharedManager.isNetworkRechable) {
+      toastView.setUpViewWithText(text: Constants.KNoNetwork)
+    }
+    view.addSubview(toastView)
     
-    // Pass sender for hiding ActivityIndicator when called from RefreshControl
-    callGetListAPI(refreshControl: sender)
+    // Animation Block
+    UIView.animate(withDuration: 0.4, delay: 0.0,
+                   animations: {
+                    toastView.frame.origin.y = ScreenSize.height - toastView.frame.size.height
+    }, completion: { _ in
+      UIView.animate(withDuration: 0.4, delay: 3.0,
+                     animations: {
+                      toastView.frame.origin.y = ScreenSize.height
+      }, completion: { _ in
+        if ((toastView.superview) != nil) {
+          toastView.removeFromSuperview()
+        }
+      })
+    })
   }
 }
 

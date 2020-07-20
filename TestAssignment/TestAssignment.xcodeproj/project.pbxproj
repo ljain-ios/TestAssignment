@@ -23,6 +23,8 @@
 		CF49C46424C5965B002ED0A5 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C46324C5965B002ED0A5 /* ListViewModel.swift */; };
 		CF49C46624C59D04002ED0A5 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C46524C59D04002ED0A5 /* ListTableViewCell.swift */; };
 		CF49C46824C5A1E6002ED0A5 /* ListDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C46724C5A1E6002ED0A5 /* ListDetailModel.swift */; };
+		CF49C46A24C5BC31002ED0A5 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C46924C5BC31002ED0A5 /* ReachabilityManager.swift */; };
+		CF49C46C24C5BCCE002ED0A5 /* NetworkErrorToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C46B24C5BCCE002ED0A5 /* NetworkErrorToastView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		CF49C46324C5965B002ED0A5 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		CF49C46524C59D04002ED0A5 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		CF49C46724C5A1E6002ED0A5 /* ListDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailModel.swift; sourceTree = "<group>"; };
+		CF49C46924C5BC31002ED0A5 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		CF49C46B24C5BCCE002ED0A5 /* NetworkErrorToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorToastView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 		CF49C44A24C594E3002ED0A5 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
+				CF49C46924C5BC31002ED0A5 /* ReachabilityManager.swift */,
 			);
 			path = Reachability;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				CF49C46524C59D04002ED0A5 /* ListTableViewCell.swift */,
+				CF49C46B24C5BCCE002ED0A5 /* NetworkErrorToastView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -387,9 +393,11 @@
 				CF49C45424C594E3002ED0A5 /* SceneDelegate.swift in Sources */,
 				CF49C45824C5958A002ED0A5 /* ListViewController.swift in Sources */,
 				CF49C46024C59635002ED0A5 /* HTTPLayer.swift in Sources */,
+				CF49C46A24C5BC31002ED0A5 /* ReachabilityManager.swift in Sources */,
 				CF49C46824C5A1E6002ED0A5 /* ListDetailModel.swift in Sources */,
 				CF49C45B24C595D7002ED0A5 /* Constants.swift in Sources */,
 				CF49C46424C5965B002ED0A5 /* ListViewModel.swift in Sources */,
+				CF49C46C24C5BCCE002ED0A5 /* NetworkErrorToastView.swift in Sources */,
 				CF49C45C24C595D7002ED0A5 /* DeviceType.swift in Sources */,
 				CF49C45E24C59623002ED0A5 /* ApiClient.swift in Sources */,
 				CF49C46224C5964B002ED0A5 /* ListModel.swift in Sources */,
