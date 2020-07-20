@@ -32,7 +32,7 @@ class ReachabilityManager: NSObject {
   // Reachability change method
   @objc func reachabilityChanged(notification: Notification?) {
     if (notification == nil && self.isNetworkRechable == true) {
-        return
+      return
     }
     switch reachability!.connection {
     case .wifi:
