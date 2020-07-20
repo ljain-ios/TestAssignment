@@ -41,6 +41,27 @@ class TestAssignmentTests: XCTestCase {
     wait(for: [promise], timeout: 10)
   }
   
+  // Test if API decodes the data correctly
+  func testIfDataInCorrectUtf8() {
+    let expectationForDecoder = expectation(description: "Status code: 200")
+    httpLayer.request(at: .fetchList) { (data, response, error) in
+      if let error = error {
+        XCTFail("Error: \(error.localizedDescription)")
+        return
+      } else if let data = data {
+        do{
+          let decoder = JSONDecoder()
+          let list = try decoder.decode(ListModel.self, from: data)
+          XCTAssertNotNil(list, "Did not receive list")
+          expectationForDecoder.fulfill()
+        }catch let error {
+          XCTFail("Error: \(error.localizedDescription)")
+        }
+      }
+    }
+    wait(for: [expectationForDecoder], timeout: 10.0)
+  }
+  
   // MARK: - Test ListModel Decoder Method
   func testDecoderToPopulateListModel() throws {
     let listData = Data("""

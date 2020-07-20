@@ -56,6 +56,7 @@ extension ListViewController {
     DispatchQueue.global(qos: .background).async { [weak self] in
       guard let self = self else { return }
       self.viewModel.getList(completion: { (error) in
+        // Populate UI as per API Response
         self.gotListData(error: error)
       })
     }
@@ -81,6 +82,7 @@ extension ListViewController {
           self.noRecordLabel.isHidden = false
         }
       } else {
+        // Show Error alert
         let alertMsg = error != nil ? error!.localizedDescription : Constants.kErrorFetchList
         let alertVC = UIAlertController(title: Constants.kError, message: alertMsg, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: Constants.kOk, style: .default, handler: nil))
@@ -169,7 +171,11 @@ extension ListViewController: UITableViewDataSource {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListTableViewCell else {
       return UITableViewCell()
     }
+    guard let listModel = viewModel.listData?.rows[indexPath.row] else {
+      return UITableViewCell()
+    }
     cell.tag = indexPath.row
+    cell.configureCellElements(with: listModel, networkingClient:viewModel.networking, row: indexPath.row)
     cell.selectionStyle = .none
     return cell
   }
