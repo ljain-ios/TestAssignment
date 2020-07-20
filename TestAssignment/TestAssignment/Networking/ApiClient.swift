@@ -45,6 +45,22 @@ class ApiClient {
       }
     }
   }
+  
+  // Download Image Method
+  func downloadImage(from url: String , completion: @escaping (Result<Data>) -> Void) {
+    self.httpLayer.request(at: .downloadImageFromUrl(url)) { (data, response, error) in
+      guard let httpResponse = response as? HTTPURLResponse,
+        httpResponse.statusCode.isSuccessHTTPCode,
+        let imageData = data
+        else {
+          if let error = error {
+            completion(.failure(error))
+          }
+          return
+      }
+      completion(.success(imageData))
+    }
+  }
 }
 
 // MARK: - Int Extension
