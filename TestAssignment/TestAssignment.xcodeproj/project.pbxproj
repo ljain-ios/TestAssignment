@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,7 @@
 		CF49C46224C5964B002ED0A5 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C46124C5964B002ED0A5 /* ListModel.swift */; };
 		CF49C46424C5965B002ED0A5 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C46324C5965B002ED0A5 /* ListViewModel.swift */; };
 		CF49C46624C59D04002ED0A5 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C46524C59D04002ED0A5 /* ListTableViewCell.swift */; };
+		CF49C46824C5A1E6002ED0A5 /* ListDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF49C46724C5A1E6002ED0A5 /* ListDetailModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		CF49C46124C5964B002ED0A5 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		CF49C46324C5965B002ED0A5 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		CF49C46524C59D04002ED0A5 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		CF49C46724C5A1E6002ED0A5 /* ListDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +90,6 @@
 				1A16265DDFC0105FF7A1D916 /* Pods-TestAssignmentTests.debug.xcconfig */,
 				4A7D4C7C06A2713AC052BAEC /* Pods-TestAssignmentTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -176,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				CF49C46124C5964B002ED0A5 /* ListModel.swift */,
+				CF49C46724C5A1E6002ED0A5 /* ListDetailModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -385,6 +387,7 @@
 				CF49C45424C594E3002ED0A5 /* SceneDelegate.swift in Sources */,
 				CF49C45824C5958A002ED0A5 /* ListViewController.swift in Sources */,
 				CF49C46024C59635002ED0A5 /* HTTPLayer.swift in Sources */,
+				CF49C46824C5A1E6002ED0A5 /* ListDetailModel.swift in Sources */,
 				CF49C45B24C595D7002ED0A5 /* Constants.swift in Sources */,
 				CF49C46424C5965B002ED0A5 /* ListViewModel.swift in Sources */,
 				CF49C45C24C595D7002ED0A5 /* DeviceType.swift in Sources */,
