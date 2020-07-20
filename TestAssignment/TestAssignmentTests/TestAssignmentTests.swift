@@ -10,11 +10,35 @@ import XCTest
 @testable import TestAssignment
 
 class TestAssignmentTests: XCTestCase {
+  let httpLayer = HTTPLayer()
+  var networking: ApiClient!
   
   override func setUpWithError() throws {
+    networking = ApiClient(httpLayer: httpLayer)
   }
   
   override func tearDownWithError() throws {
+  }
+  
+  // MARK: - Test FetchList API Methods
+  func testApiCallToFetchList() {
+    // Creating the expectation to see if API gives status code 200
+    let promise = expectation(description: "Status code: 200")
+    
+    // Fetch List API Call
+    self.httpLayer.request(at: .fetchList) { (data, response, error) in
+      if let error = error {
+        XCTFail("Error: \(error.localizedDescription)")
+        return
+      } else if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+        if statusCode == 200 {
+          promise.fulfill()
+        } else {
+          XCTFail("Status code: \(statusCode)")
+        }
+      }
+    }
+    wait(for: [promise], timeout: 10)
   }
   
   // MARK: - Test ListModel Decoder Method
