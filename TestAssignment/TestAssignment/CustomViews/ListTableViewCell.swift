@@ -12,6 +12,7 @@ class ListTableViewCell: UITableViewCell {
   var titleLabel = UILabel(frame: .zero)
   var descriptionLabel = UILabel(frame: .zero)
   var listImageView = UIImageView(image: UIImage(named: "no-photo"))
+  var minHeight: CGFloat?
   
   // Set Image Height and Width as per screen size
   private var imageHeightConstant: CGFloat {
@@ -20,6 +21,20 @@ class ListTableViewCell: UITableViewCell {
     } else {
       return 70
     }
+  }
+  
+  // Override func for setting minimum height to avoid content overlapping
+  override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+    let size = super.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
+    guard let minHeight = minHeight else { return size }
+    return CGSize(width: size.width, height: max(size.height, minHeight))
+  }
+  
+  // Code Cleanup for cell reuse
+  override func prepareForReuse() {
+    listImageView.image = UIImage(named: "no-photo")
+    titleLabel.text = ""
+    descriptionLabel.text = ""
   }
 }
 
