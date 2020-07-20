@@ -18,17 +18,21 @@ class HTTPLayer {
   // Enum to handle to API Url's and HTTP methods(POST, GET, PUT)
   enum Endpoint {
     case fetchList
+    case downloadImageFromUrl(String)
     
     var path: String {
       switch self {
       case .fetchList:
         return Constants.baseUrl
+      case .downloadImageFromUrl(let urlString):
+        return urlString
       }
     }
     
     var httpMethod: HTTPMethod {
       switch self {
-      case .fetchList:
+      case .downloadImageFromUrl(_),
+           .fetchList:
         return .get
       }
     }
