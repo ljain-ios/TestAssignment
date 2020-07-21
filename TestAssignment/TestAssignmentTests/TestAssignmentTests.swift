@@ -13,11 +13,14 @@ class TestAssignmentTests: XCTestCase {
   let httpLayer = HTTPLayer()
   var networking: ApiClient!
   
-  override func setUpWithError() throws {
+  override func setUp() {
+    super.setUp()
     networking = ApiClient(httpLayer: httpLayer)
   }
   
-  override func tearDownWithError() throws {
+  override func tearDown() {
+    networking = nil
+    super.tearDown()
   }
   
   // MARK: - Test FetchList API Methods
