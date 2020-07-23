@@ -13,6 +13,7 @@ class ListTableViewCell: UITableViewCell {
   var descriptionLabel = UILabel(frame: .zero)
   var listImageView = UIImageView(image: UIImage(named: "no-photo"))
   var minHeight: CGFloat?
+  let imageCache = NSCache<NSString, UIImage>()
   
   // Set Image Height and Width as per screen size
   private var imageHeightConstant: CGFloat {
@@ -126,15 +127,21 @@ extension ListTableViewCell {
 // MARK: - Download Image Method
 extension ListTableViewCell {
   func downloadImage(urlString: String, networking: ApiClient, completion: @escaping (UIImage)-> Void){
-    networking.downloadImage(from: urlString) { (result) in
-      switch result{
-      case .failure(let error):
-        print(error)
-      case .success(let imageData):
-        if let image = UIImage(data: imageData){
-          completion(image)
-        }else{
-          completion(UIImage())
+    // Load image from Cache
+    if let imageFromCache = imageCache.object(forKey: urlString as NSString) {
+      completion(imageFromCache)
+    } else {
+      networking.downloadImage(from: urlString) { (result) in
+        switch result{
+        case .failure(let error):
+          print(error)
+        case .success(let imageData):
+          if let image = UIImage(data: imageData){
+            self.imageCache.setObject(image, forKey: urlString as NSString)
+            completion(image)
+          }else{
+            completion(UIImage())
+          }
         }
       }
     }
