@@ -25,7 +25,6 @@ class ReachabilityManager: NSObject {
     do{
       try reachability!.startNotifier()
     } catch {
-      print("could not start reachability notifier")
     }
   }
   

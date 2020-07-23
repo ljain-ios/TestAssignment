@@ -133,8 +133,8 @@ extension ListTableViewCell {
     } else {
       networking.downloadImage(from: urlString) { (result) in
         switch result{
-        case .failure(let error):
-          print(error)
+        case .failure:
+          return
         case .success(let imageData):
           if let image = UIImage(data: imageData){
             self.imageCache.setObject(image, forKey: urlString as NSString)
