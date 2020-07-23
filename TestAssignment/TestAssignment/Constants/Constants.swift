@@ -22,4 +22,5 @@ struct Constants {
   static let kError = "Error"
   static let kOk = "OK"
   static let kNoRecordFound = "No Records Found"
+  static let kListCellIdentifier = "ListCellIdentifier"
 }

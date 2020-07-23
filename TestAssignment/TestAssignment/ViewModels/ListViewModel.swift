@@ -7,14 +7,24 @@
 //
 
 import Foundation
+import UIKit
 
-class ListViewModel {
+class ListViewModel: NSObject {
   let httpLayer = HTTPLayer()
   let networking: ApiClient
   var listData: ListModel?
   
+  // Cell minimum height as per device
+  private var cellMinimumHeight: CGFloat {
+    if DeviceType.iPhone {
+      return 70
+    } else {
+      return 80
+    }
+  }
+  
   // MARK: - Class Methods
-  init(){
+  override init(){
     // Initialize networking for API Calls
     networking = ApiClient(httpLayer: httpLayer)
   }
@@ -33,5 +43,36 @@ class ListViewModel {
         completion(nil)
       }
     }
+  }
+}
+
+// MARK: - UITableViewDelegate
+extension ListViewModel: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return UITableView.automaticDimension
+  }
+}
+
+// MARK: - UITableViewDataSource
+extension ListViewModel: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return listData?.rows.count ?? 0
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.kListCellIdentifier) as? ListTableViewCell else {
+      return UITableViewCell()
+    }
+    guard let listModel = listData?.rows[indexPath.row] else {
+      return UITableViewCell()
+    }
+    cell.tag = indexPath.row
+    cell.configureCellElements(with: listModel, networkingClient:networking, row: indexPath.row)
+    cell.selectionStyle = .none
+    
+    // Set minimum height for cell
+    cell.minHeight = cellMinimumHeight
+    
+    return cell
   }
 }

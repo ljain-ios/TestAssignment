@@ -24,4 +24,21 @@ class NetworkErrorToastView: UIView {
     toastTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
     toastTitle.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
   }
+  
+  func toastAnimation() {
+    // Animation Block
+    UIView.animate(withDuration: 0.4, delay: 0.0,
+                   animations: {
+                    self.frame.origin.y = ScreenSize.height - self.frame.size.height
+    }, completion: { _ in
+      UIView.animate(withDuration: 0.4, delay: 3.0,
+                     animations: {
+                      self.frame.origin.y = ScreenSize.height
+      }, completion: { _ in
+        if ((self.superview) != nil) {
+          self.removeFromSuperview()
+        }
+      })
+    })
+  }
 }
