@@ -28,7 +28,6 @@ class ListViewModel {
       switch result{
       case .failure(let error):
         completion(error as NSError)
-        print(error)
       case .success(let list):
         self.listData = list
         completion(nil)
