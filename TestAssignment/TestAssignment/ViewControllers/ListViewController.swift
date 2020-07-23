@@ -15,16 +15,6 @@ class ListViewController: UIViewController {
   private let noRecordLabel = UILabel(frame: .zero)
   var safeArea: UILayoutGuide!
   private let refreshControl = UIRefreshControl()
-  private let cellIdentifier = "ListCellIdentifier"
-  
-  // Cell minimum height as per device
-  private var cellMinimumHeight: CGFloat {
-    if DeviceType.iPhone {
-      return 70
-    } else {
-      return 80
-    }
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -74,19 +64,7 @@ class ListViewController: UIViewController {
     view.addSubview(toastView)
     
     // Animation Block
-    UIView.animate(withDuration: 0.4, delay: 0.0,
-                   animations: {
-                    toastView.frame.origin.y = ScreenSize.height - toastView.frame.size.height
-    }, completion: { _ in
-      UIView.animate(withDuration: 0.4, delay: 3.0,
-                     animations: {
-                      toastView.frame.origin.y = ScreenSize.height
-      }, completion: { _ in
-        if ((toastView.superview) != nil) {
-          toastView.removeFromSuperview()
-        }
-      })
-    })
+    toastView.toastAnimation()
   }
 }
 
@@ -151,9 +129,9 @@ extension ListViewController {
   
   // Setup TableView
   func setUpTableView() {
-    listTableView.register(ListTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-    listTableView.delegate = self
-    listTableView.dataSource = self
+    listTableView.register(ListTableViewCell.self, forCellReuseIdentifier: Constants.kListCellIdentifier)
+    listTableView.delegate = viewModel
+    listTableView.dataSource = viewModel
     listTableView.tableFooterView = UIView(frame: .zero)
     listTableView.estimatedRowHeight = 120
     listTableView.refreshControl = refreshControl
@@ -198,36 +176,5 @@ extension ListViewController {
     noRecordLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
     noRecordLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     noRecordLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
-  }
-}
-
-// MARK: - UITableViewDelegate
-extension ListViewController: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return UITableView.automaticDimension
-  }
-}
-
-// MARK: - UITableViewDataSource
-extension ListViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel.listData?.rows.count ?? 0
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? ListTableViewCell else {
-      return UITableViewCell()
-    }
-    guard let listModel = viewModel.listData?.rows[indexPath.row] else {
-      return UITableViewCell()
-    }
-    cell.tag = indexPath.row
-    cell.configureCellElements(with: listModel, networkingClient:viewModel.networking, row: indexPath.row)
-    cell.selectionStyle = .none
-    
-    // Set minimum height for cell
-    cell.minHeight = cellMinimumHeight
-    
-    return cell
   }
 }
