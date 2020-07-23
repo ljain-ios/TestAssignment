@@ -80,7 +80,8 @@ extension ListViewController {
     // Background call for GetList API
     DispatchQueue.global(qos: .background).async { [weak self] in
       guard let self = self else { return }
-      self.viewModel.getList(completion: { (error) in
+      self.viewModel.getList(completion: { [weak self] (error) in
+        guard let self = self else { return }
         // Populate UI as per API Response
         self.gotListData(error: error)
       })
