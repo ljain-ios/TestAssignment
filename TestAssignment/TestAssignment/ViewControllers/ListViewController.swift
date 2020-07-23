@@ -101,10 +101,11 @@ extension ListViewController {
       
       // If listData nil then show Alert
       if let listData = self.viewModel.listData {
-        self.setUpNavigationBar(title: listData.title)
+        self.setUpNavigationBar(title: listData.title ?? "")
         self.noRecordLabel.isHidden = true
+        self.viewModel.filterRows()
         self.listTableView.reloadData()
-        if listData.rows.count == 0 {
+        if listData.rows?.count == 0 {
           self.noRecordLabel.isHidden = false
         }
       } else {

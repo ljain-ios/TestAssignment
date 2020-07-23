@@ -41,7 +41,7 @@ class TestAssignmentTests: XCTestCase {
         }
       }
     }
-    wait(for: [promise], timeout: 10)
+    wait(for: [promise], timeout: 30.0)
   }
   
   // Test if API decodes the data correctly
@@ -62,7 +62,7 @@ class TestAssignmentTests: XCTestCase {
         }
       }
     }
-    wait(for: [expectationForDecoder], timeout: 10.0)
+    wait(for: [expectationForDecoder], timeout: 30.0)
   }
   
   // MARK: - Test Download Image Method
@@ -84,7 +84,7 @@ class TestAssignmentTests: XCTestCase {
         }
       }
     }
-    wait(for: [promise], timeout: 10)
+    wait(for: [promise], timeout: 30)
   }
   
   // MARK: - Test ListModel Decoder Method
@@ -121,7 +121,7 @@ class TestAssignmentTests: XCTestCase {
     
     // Check if decoder decodes the null value of "title"
     listDecoder = try JSONDecoder().decode(ListModel.self, from: listDataWithNullTitle)
-    XCTAssertEqual(listDecoder.title, "")
+    XCTAssertEqual(listDecoder.title, nil)
     
     let listDataWithNullRow = Data("""
         {
@@ -132,8 +132,7 @@ class TestAssignmentTests: XCTestCase {
     
     // Check if decoder decodes the null value of "rows"
     listDecoder = try JSONDecoder().decode(ListModel.self, from: listDataWithNullRow)
-    XCTAssertEqual(listDecoder.rows.count, 0)
-    XCTAssertEqual(listDecoder.rows,[])
+    XCTAssertEqual(listDecoder.rows,nil)
   }
   
   // MARK: - Test ListDetailModel Decoder Method
@@ -160,7 +159,7 @@ class TestAssignmentTests: XCTestCase {
     
     // Check if decoder decodes the null value of "title"
     listDetailDecoder = try JSONDecoder().decode(ListDetailModel.self, from: rowWithNullTitle)
-    XCTAssertEqual(listDetailDecoder.title, "")
+    XCTAssertEqual(listDetailDecoder.title, nil)
     
     let rowWithNullDesc = Data("""
         {
@@ -172,7 +171,7 @@ class TestAssignmentTests: XCTestCase {
     
     // Check if decoder decodes the null value of "description"
     listDetailDecoder = try JSONDecoder().decode(ListDetailModel.self, from: rowWithNullDesc)
-    XCTAssertEqual(listDetailDecoder.description, "")
+    XCTAssertEqual(listDetailDecoder.description, nil)
     
     let rowWithNullImage = Data("""
         {
@@ -184,6 +183,6 @@ class TestAssignmentTests: XCTestCase {
     
     // Check if decoder decodes the null value of "imageHref"
     listDetailDecoder = try JSONDecoder().decode(ListDetailModel.self, from: rowWithNullImage)
-    XCTAssertEqual(listDetailDecoder.imageHref, "")
+    XCTAssertEqual(listDetailDecoder.imageHref, nil)
   }
 }

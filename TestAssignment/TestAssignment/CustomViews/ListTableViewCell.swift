@@ -47,18 +47,18 @@ extension ListTableViewCell {
     setupListImageView(imageString: listDetailModel.imageHref, networkingClient: networkingClient, row: row)
     
     // Setup Title Label
-    setupTitleLabel(titleString: listDetailModel.title)
+    setupTitleLabel(titleString: listDetailModel.title ?? "")
     
     // Setup Description Label
-    setupDescriptionLabel(descriptionString: listDetailModel.description)
+    setupDescriptionLabel(descriptionString: listDetailModel.description ?? "")
   }
   
   // Configuration method for ListImageView
-  private func setupListImageView(imageString: String, networkingClient: ApiClient, row: Int) {
+  private func setupListImageView(imageString: String?, networkingClient: ApiClient, row: Int) {
     listImageView.translatesAutoresizingMaskIntoConstraints = false
     
     // Download image only if imageHref is not empty
-    if imageString != "" {
+    if let imageString = imageString {
       // Download image here
       // Create background thread to download image
       DispatchQueue.global(qos: .background).async { [weak self] in

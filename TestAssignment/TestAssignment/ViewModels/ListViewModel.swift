@@ -13,6 +13,7 @@ class ListViewModel: NSObject {
   let httpLayer = HTTPLayer()
   let networking: ApiClient
   var listData: ListModel?
+  var listRows: [ListDetailModel]?
   
   // Cell minimum height as per device
   private var cellMinimumHeight: CGFloat {
@@ -44,6 +45,18 @@ class ListViewModel: NSObject {
       }
     }
   }
+  
+  func filterRows() {
+    if let rows = listData?.rows {
+      listRows = rows.filter({ (listDetailModel) -> Bool in
+        (listDetailModel.title != nil) ||
+        (listDetailModel.imageHref != nil) ||
+        (listDetailModel.description != nil)
+      })
+    } else {
+      listRows = nil
+    }
+  }
 }
 
 // MARK: - UITableViewDelegate
@@ -56,14 +69,14 @@ extension ListViewModel: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 extension ListViewModel: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return listData?.rows.count ?? 0
+    return listRows?.count ?? 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.kListCellIdentifier) as? ListTableViewCell else {
       return UITableViewCell()
     }
-    guard let listModel = listData?.rows[indexPath.row] else {
+    guard let listModel = listRows?[indexPath.row] else {
       return UITableViewCell()
     }
     cell.tag = indexPath.row
